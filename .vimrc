@@ -12,7 +12,7 @@ let maplocalleader="\\"
 
 " Editing behaviour {{{
 set showmode                    " always show what mode we're currently editing in
-set wrap                      " don't wrap lines
+set wrap                        " wrap lines
 set tabstop=4                   " a tab is four spaces
 set softtabstop=4               " when hitting <BS>, pretend like a tab is removed, even if spaces
 set expandtab                   " expand tabs by default (overloadable per file type later)
@@ -77,8 +77,8 @@ vnoremap / /\v
 nnoremap <leader>r :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>:%s//
 
 " Speed up scrolling of the viewport slightly
-nnoremap <C-e> 2<C-e>
-nnoremap <C-y> 2<C-y>
+nnoremap <C-e> 5<C-e>
+nnoremap <C-y> 5<C-y>
 " }}}
 
 " Folding rules {{{
@@ -102,8 +102,6 @@ Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
 Plug 'airblade/vim-gitgutter'
-" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-" Plug 'junegunn/fzf.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'editorconfig/editorconfig-vim'
@@ -113,3 +111,8 @@ call plug#end()
 set laststatus=2
 colorscheme molokai
 map <C-n> :NERDTreeToggle<CR>
+set cursorline
+
+" Show hidden file except .git and *.swp
+let NERDTreeShowHidden=1
+let NERDTreeIgnore = ['\.swp$', '^\.git$']
