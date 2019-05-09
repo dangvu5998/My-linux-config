@@ -116,3 +116,4 @@ set cursorline
 " Show hidden file except .git and *.swp
 let NERDTreeShowHidden=1
 let NERDTreeIgnore = ['\.swp$', '^\.git$']
+nnoremap <silent> <C-l> :nohl<CR> " hide search hightlight
