@@ -66,11 +66,6 @@ nnoremap <leader>I :set list!<cr>
 " Toggle line numbers
 nnoremap <leader>N :setlocal number!<cr>
 
-" Thanks to Steve Losh for this liberating tip
-" See http://stevelosh.com/blog/2010/09/coming-home-to-vim
-nnoremap / /\v
-vnoremap / /\v
-
 " Triggers global-search-and-replace. Prompts for a replacement string and
 " will replace all matches from the previous search command.
 " nnoremap <leader>r :%s//
@@ -106,6 +101,10 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'vim-airline/vim-airline'
+Plug 'alvan/vim-closetag' " auto close tag
+Plug 'tpope/vim-fugitive'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 
 call plug#end()
 set laststatus=2
@@ -116,4 +115,14 @@ set cursorline
 " Show hidden file except .git and *.swp
 let NERDTreeShowHidden=1
 let NERDTreeIgnore = ['\.swp$', '^\.git$']
-nnoremap <silent> <C-l> :nohl<CR> " hide search hightlight
+nnoremap <silent> <C-l> :nohl<CR>
+autocmd FileType javascript setlocal ts=2 sts=2 sw=2
+" filenames like *.xml, *.html, *.xhtml, ...
+" These are the file extensions where this plugin is enabled.
+"
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js'
+
+" filenames like *.xml, *.xhtml, ...
+" This will make the list of non-closing tags self-closing in the specified files.
+"
+let g:closetag_xhtml_filenames = '*.js,*.xhtml,*.jsx'
