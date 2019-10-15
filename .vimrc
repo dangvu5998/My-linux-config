@@ -103,8 +103,12 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'alvan/vim-closetag' " auto close tag
 Plug 'tpope/vim-fugitive'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript' "syntax hightlight for javascipt
+Plug 'mxw/vim-jsx' "syntax hightlight for javascipt
+Plug 'leafgarland/typescript-vim' "syntax hightlight for typescript
+Plug 'udalov/kotlin-vim'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'Yggdroot/indentLine'
 
 call plug#end()
 set laststatus=2
@@ -116,7 +120,7 @@ set cursorline
 let NERDTreeShowHidden=1
 let NERDTreeIgnore = ['\.swp$', '^\.git$']
 nnoremap <silent> <C-l> :nohl<CR>
-autocmd FileType javascript setlocal ts=2 sts=2 sw=2
+autocmd FileType javascript,typescript,json setlocal ts=2 sts=2 sw=2
 " filenames like *.xml, *.html, *.xhtml, ...
 " These are the file extensions where this plugin is enabled.
 "
@@ -126,3 +130,8 @@ let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js'
 " This will make the list of non-closing tags self-closing in the specified files.
 "
 let g:closetag_xhtml_filenames = '*.js,*.xhtml,*.jsx'
+
+" Fugitive Conflict Resolution
+nnoremap <leader>gd :Gvdiff<CR>
+nnoremap gdh :diffget //2<CR>
+nnoremap gdl :diffget //3<CR>
